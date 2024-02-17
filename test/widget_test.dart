@@ -91,4 +91,12 @@ void main() {
     await tester.drag(find.byType(Dismissible), const Offset(500, 0));
     await tester.pumpAndSettle();
   });
+
+  /* SharedPreferences
+    final Map<String, Object> values = <String, Object>{'counter': 1};
+    SharedPreferences.setMockInitialValues(values);
+
+    By calling ensureInitialized(), you ensure that all the services required by your application are properly 
+    initialized before any further code execution takes place.
+  */
 }
