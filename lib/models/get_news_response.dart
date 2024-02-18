@@ -3,6 +3,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'get_news_response.g.dart';
 
+/* 
+
+1) json_annotation
+2) equatable
+3) build_runner
+*/
+
 @JsonSerializable()
 class GetNewsResponse extends Equatable {
   final String status;
