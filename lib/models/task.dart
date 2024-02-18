@@ -1,19 +1,14 @@
-import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'task.freezed.dart';
 part 'task.g.dart';
 
-@JsonSerializable()
-class Task extends Equatable {
-  final int id;
-  final String name;
-
-  const Task({required this.id, required this.name});
+@freezed
+class Task with _$Task {
+  const factory Task({
+    required int id,
+    required String name,
+  }) = _Task;
 
   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TaskToJson(this);
-
-  @override
-  List<Object> get props => [id, name];
 }

@@ -17,7 +17,7 @@ GetNewsResponse _$GetNewsResponseFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$GetNewsResponseToJson(GetNewsResponse instance) =>
     <String, dynamic>{
       'status': instance.status,
-      'articles': instance.articles,
+      'articles': instance.articles.map((e) => e.toJson()).toList(),
     };
 
 Source _$SourceFromJson(Map<String, dynamic> json) => Source(
@@ -25,10 +25,19 @@ Source _$SourceFromJson(Map<String, dynamic> json) => Source(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-    };
+Map<String, dynamic> _$SourceToJson(Source instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('name', instance.name);
+  return val;
+}
 
 NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => NewsArticle(
       source: json['source'] == null
@@ -43,14 +52,22 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => NewsArticle(
       content: json['content'] as String?,
     );
 
-Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) =>
-    <String, dynamic>{
-      'source': instance.source,
-      'author': instance.author,
-      'title': instance.title,
-      'description': instance.description,
-      'url': instance.url,
-      'urlToImage': instance.urlToImage,
-      'publishedAt': instance.publishedAt,
-      'content': instance.content,
-    };
+Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('source', instance.source?.toJson());
+  writeNotNull('author', instance.author);
+  writeNotNull('title', instance.title);
+  writeNotNull('description', instance.description);
+  writeNotNull('url', instance.url);
+  writeNotNull('urlToImage', instance.urlToImage);
+  writeNotNull('publishedAt', instance.publishedAt);
+  writeNotNull('content', instance.content);
+  return val;
+}
