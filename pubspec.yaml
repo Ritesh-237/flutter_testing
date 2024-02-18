@@ -50,6 +50,7 @@ dependencies:
   json_serializable: ^6.7.1
   get_it: ^7.6.7
   injectable: ^2.3.2
+  mason: ^0.1.0-dev.52
 
 dev_dependencies:
   flutter_test:
