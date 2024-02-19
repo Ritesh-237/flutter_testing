@@ -12,3 +12,7 @@ mason add hello
 
 # 🧱 Use your first brick
 mason make hello
+
+
+# dart pub global activate melos   ---> to activate melos
+melos bs
