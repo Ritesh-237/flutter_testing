@@ -1,9 +1,43 @@
-import 'package:dummy/repository/dio.dart';
-import 'package:dummy/repository/interceptor.dart';
-import 'package:get_it/get_it.dart';
 
+
+
+
+
+
+
+/*
+
+* setup : 
 var getIt = GetIt.instance;
-setUp() {
-  getIt.registerLazySingleton<DioFactory>(
-      () => DioFactory('baseUrl', AppendTimestampInterceptor()));
+@InjectableInit()
+void configureDependencies() => getIt.init();
+
+
+@Injectable()
+class HomeBloc{
+  final Usecase usecase;
+  final DataSource dataSource;
+  HomeBloc(this.usecase,this.dataSource);
 }
+
+@lazysingleton
+class Usecase{
+}
+
+@Singleton(dispose: disposeDataSource)  
+class DataSource {  
+  
+  void dispose() {  
+   
+  }  
+} 
+FutureOr disposeDataSource(DataSource instance){  
+   instance.dispose();  
+} 
+
+
+* usage : 
+
+HomeBloc homeBloc = getIt<HomeBloc>()
+
+*/
