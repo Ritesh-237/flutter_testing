@@ -7,6 +7,27 @@
 2) freezed_annotation
 3) json_serializable
 
+
+* Defining a mutable class instead of an immutable one #
+
+use "@unfreezed" instead of @freezed
+
+NOTE : Person no-longer has a custom ==/hashCode implementation: because it is no-longer possible to instantiate it using const.
+
+E.g
+
+@unfreezed
+class Person with _$Person {
+  factory Person({
+    required String firstName,
+    required String lastName,
+    required final int age,
+  }) = _Person;
+
+  factory Person.fromJson(Map<String, Object?> json)
+      => _$PersonFromJson(json);
+}
+
 * json_annotation offers functionality of converting paramater to another type for example int to String
 
 class IntToStringConverter implements JsonConverter<String, int> {

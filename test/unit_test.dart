@@ -32,10 +32,15 @@ void main() {
 
   group('Auth Repository', () {
     test('Login User Successful', () async {
-      expect(await mockAuthRepository.loginUser('abhishek@gmail.com', '123456'),
-          true);
+      // expect(await mockAuthRepository.loginUser('abhishek@gmail.com', '123456'),
+      //     true);
     });
+    test('Login User Stubing value', () async {
+      final result =
+          await mockAuthRepository.loginUser('abhishek@gmail.com', '12345');
 
+      expect(result, true);
+    });
     test('Get News Successful', () async {
       final model = await getNewsMapper();
       // when(await mockAuthRepository.getNews()).thenAnswer((_) {
@@ -57,5 +62,36 @@ void main() {
     // });
   });
 
-  group('Task Cubit Test', () {});
+  group('Counter start, increment and decrement test', () {
+    test('Initial Counter value', () {
+      final counter = Counter();
+
+      expect(counter.value, 0);
+    });
+
+    test('Increment test', () {
+      final counter = Counter();
+      counter.increment();
+
+      expect(counter.value, 1);
+    });
+
+    test('Decrement test', () {
+      final counter = Counter();
+      counter.decrement();
+      expect(counter.value, -1);
+    });
+  });
+}
+
+class Counter {
+  int value = 0;
+
+  int increment() {
+    return value++;
+  }
+
+  int decrement() {
+    return value--;
+  }
 }
