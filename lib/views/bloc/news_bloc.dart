@@ -4,6 +4,12 @@ import 'package:equatable/equatable.dart';
 part 'news_event.dart';
 part 'news_state.dart';
 
+/* 
+
+*NOTE : listener is only called once for each state change
+
+*/
+
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc() : super(const NewsStateInitial()) {
     on<GetNewsEvent>(_geNewsEvent);
