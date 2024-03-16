@@ -1,5 +1,5 @@
 /*
-
+https://dart.dev/tools/linter-rules#error-rules
 include: package:lints/recommended.yaml
 
 analyzer:
